@@ -1,0 +1,56 @@
+.app-shell :is(button, input, textarea, summary):focus-visible {
+  outline: 3px solid #83d99a;
+  outline-offset: 3px;
+}
+
+/* Keep the original dark logo on its white image background. */
+.login-brand img,
+.footer-grid .brand img {
+  filter: none;
+  mix-blend-mode: normal;
+  background: #fff;
+}
+
+.notification-wrap { position: relative; }
+.notification-panel {
+  position: absolute; right: -35px; top: 43px; z-index: 35;
+  width: min(305px, calc(100vw - 32px)); padding: 18px;
+  background: #fff; border: 1px solid var(--line); border-radius: 14px;
+  box-shadow: 0 18px 45px #173b2426;
+}
+.notification-panel > b { font: 700 15px Outfit, sans-serif; }
+.notification-panel p { display: flex; align-items: flex-start; gap: 9px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.notification-panel p svg { flex: none; color: var(--green); }
+.notification-panel > button { display: flex; align-items: center; gap: 5px; border: 0; background: none; color: var(--green-dark); font-weight: 700; font-size: 11px; padding: 0; }
+
+.faq-section { background: #f5faf5; border-top: 1px solid #e6f0e7; }
+.faq-layout { display: grid; grid-template-columns: minmax(230px, .8fr) 1.2fr; gap: 80px; align-items: start; }
+.faq-layout h2 { font: 700 clamp(32px, 4vw, 43px)/1.12 Outfit, sans-serif; letter-spacing: -1.5px; margin: 15px 0; }
+.faq-layout h2 em { font-style: normal; color: var(--green); }
+.faq-layout > div:first-child > p:last-child { color: var(--muted); font-size: 13px; line-height: 1.7; }
+.faq-list { border-top: 1px solid #dbeadd; }
+.faq-list details { border-bottom: 1px solid #dbeadd; }
+.faq-list summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px; cursor: pointer; padding: 20px 3px; font: 700 14px Outfit, sans-serif; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary svg { flex: none; color: var(--green); transition: transform .2s ease; }
+.faq-list details[open] summary svg { transform: rotate(45deg); }
+.faq-list details p { color: var(--muted); font-size: 12px; line-height: 1.7; margin: -5px 32px 19px 3px; }
+.empty-activity { margin: 0; padding: 24px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.redeemed-list { margin-top: 28px; border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+.redeemed-list h2 { margin: 0 0 12px; font: 700 18px Outfit, sans-serif; }
+.redeemed-list p { display: flex; align-items: center; gap: 10px; margin: 0; padding: 10px 0; border-top: 1px solid var(--line); }
+.redeemed-list p svg { color: var(--green); }
+.redeemed-list span, .redeemed-list small { display: block; }
+.redeemed-list b { font-size: 11px; }
+.redeemed-list small { color: var(--muted); font-size: 10px; margin-top: 3px; }
+.profile-logout { margin-top: 20px; border: 0; background: transparent; color: var(--green-dark); font-size: 11px; font-weight: 700; padding: 6px 0; }
+
+@media (max-width: 800px) {
+  .app-shell .notification-wrap .notification { display: grid; }
+  .notification-panel { right: -95px; }
+  .faq-layout { grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-shell *, .app-shell *::before, .app-shell *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
